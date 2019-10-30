@@ -1,64 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+
 import '../Common.css';
 import './Login.css';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: ''
-    };
-  }
-
-  handleChangeUsername = (event) => {
-    this.setState({
-      username: event.target.value
-    });
-  }
-
-  handleChangePass = (event) => {
-    this.setState({
-      pass: event.target.value
-    });
-  }
-
-  handleSubmit = () => {
-    let formdata = new FormData();
-    formdata.append('username', this.state.username);
-    formdata.append('pass', this.state.pass);
-
-    console.log("erere")
-    axios.post('http://192.168.184.30:8000/user/logIn', formdata)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
   }
 
   render() {
     return (
-      <section className="FormLogin" className="FormHuman" id="container">
+      <section className="FormLogin" id="container">
         <header>
-          <img src="https://image.flaticon.com/icons/svg/1029/1029132.svg" alt="Lorem Ipsum" width="50px"/>
+          <img src={"https://image.flaticon.com/icons/svg/2170/2170147.svg"} />
+          <h2>Login</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
         </header>
-        <form>
-
-          <label>UserName : 
-            <input type="text" username={this.state.username} onChange={this.handleChangeUsername}  />
-          </label>
-
-          <label>Password : 
-            <input type="text" pass={this.state.pass} onChange={this.handleChangePass} />
-          </label>
-
-          <input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit} />
-          
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" />
+          <input type="text" />
+          <input className="button" type="submit" value="Envoyer" />
           <p className="TxtNewCount">Don't have an account <Link to="/">Sign Up!</Link></p>
-
         </form>
       </section>
     );
