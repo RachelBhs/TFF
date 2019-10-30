@@ -1,0 +1,38 @@
+
+
+.Match#container  {
+	background-color: #FF9A66;
+}
+.Match img {
+	width: 150px;
+	margin-bottom: 100px;
+}
+.Match header {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%;
+	text-align: center;
+	padding: 20% 5% 0;
+}
+.Match img {
+	width: 60%;
+	margin-bottom: 40px;
+}
+
+.CloseBtn {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+.CloseBtn img{
+	width: 25px;
+	margin: 0;
+}
+
+
+.Match h2 {
+	color: #ffffff;
+	font-size: 25px;
+}
