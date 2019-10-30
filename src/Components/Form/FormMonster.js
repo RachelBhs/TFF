@@ -3,13 +3,14 @@ import React from 'react';
 import '../Common.css';
 import './Form.css';
 
+
+
 class FormMonster extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      name: ''
+    };
   }
 
   handleChange(event) {
@@ -17,8 +18,16 @@ class FormMonster extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('Le nom a été soumis : ' + this.state.value);
-    event.preventDefault();
+    axios.post('192.168.184.30:8000/', {
+      firstName: 'Fred',
+      lastName: 'Flintstone'
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   render() {
@@ -44,23 +53,19 @@ class FormMonster extends React.Component {
 
           <label>Lorem ipsum dolor : 
             <select>
-              <option value="grapefruit">Pamplemousse</option>
-              <option value="lime">Citron vert</option>
-              <option selected value="coconut">Noix de coco</option>
-              <option value="mango">Mangue</option>
+              <option name="human">human</option>
+              <option name="vampire">vampire</option>
+              <option name="werewolf">werewolf</option>
+              <option name="zombie">zombie</option>
+              <option name="ghost">ghost</option>
+              <option name="serial_killer">serial_killer</option>
+              <option name="demon">demon</option>
+              <option name="aquatic_monster">aquatic_monster</option>
+              <option name="alien">alieb</option>
+              <option name="clown">clown</option>
+              <option name="possessed_doll">possessed_doll</option>
             </select>
           </label>
-
-          <div class="checkbox">
-            <div>
-              <input type="checkbox" />
-              <label>Oui</label>
-            </div>
-            <div>
-              <input type="checkbox" />
-              <label>Non</label>
-            </div>
-          </div>
 
           <input className="button" type="submit" value="Envoyer" />
 
