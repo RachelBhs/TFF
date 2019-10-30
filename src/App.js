@@ -1,10 +1,6 @@
 import React from 'react';
-
-
-import FormMonster from './Components/Form/FormMonster';
-import LoginHuman from './Components/Login/LoginHuman';
-
-
+import Form from './Components/Form/Form';
+import Login from './Components/Login/Login';
 import './App.css';
 import './Components/Common.css';
 
@@ -12,8 +8,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <FormMonster/>
-        <LoginHuman />
+        <Form/>
+        <Login />
       </header>
     </div>
   );
