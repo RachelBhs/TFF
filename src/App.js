@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Form from './Components/Form/FormMonster';
+import Form from './Components/Form/Form';
 import Login from './Components/Login/Login';
 import Profil from './Components/Profil/Profil';
 import MatchMonster from './Components/Match/MatchMonster';
