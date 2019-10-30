@@ -1,0 +1,20 @@
+.BtnLoginMonster{
+
+}
+
+
+
+
+.FormLogin input{
+    padding: 15px 10%;
+    width: 80%;
+    border-radius: 70px;
+    border: none;
+    border: 1px solid;
+}
+
+.FormLogin .button {
+
+    width: 100%;
+
+}
