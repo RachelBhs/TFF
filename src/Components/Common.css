@@ -118,3 +118,6 @@ select {
 .formCheckbox input {
 	margin: 0 0 0 15px;
 }
+.formCheckbox label {
+	font-weight: 400;
+}

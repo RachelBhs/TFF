@@ -1,9 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import {Link, Redirect} from 'react-router-dom';
 import '../Common.css';
 import './Form.css';
-import FormHuman from './FormHuman';
-import FormMonster from './FormMonster';
 
 class Form extends React.Component {
   constructor(props) {
@@ -48,8 +47,9 @@ class Form extends React.Component {
       console.log(response);
       this.setState({
         error: response.request.responseText,
-        id: localStorage.setItem('key', response.data.id)
+        id: response.data.id
       })
+      localStorage.setItem('key', response.data.id)
     })
     // .catch((error) => {
     //   console.log(error);
@@ -63,7 +63,6 @@ class Form extends React.Component {
           <h2>Register</h2>
 
         </header>
-          {!this.state.error && <p>Account already exist</p>}
           <label>Username : 
             <input type="text" username={this.state.username} onChange={this.handleChangeUse} />
           </label>
@@ -89,8 +88,12 @@ class Form extends React.Component {
           </label>
 
           <input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit} />
+          
           {this.state.error && 
-            this.state.gender == "human" ? <FormHuman/> : <FormMonster/>
+            this.state.gender == "1" && <Redirect to='/formhuman'></Redirect> 
+          }
+          {this.state.error &&
+            this.state.gender >= 2 && <Redirect to='/formmonster'></Redirect>
           }
       </section>
     );

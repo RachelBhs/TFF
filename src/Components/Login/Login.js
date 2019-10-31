@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import '../Common.css';
 import './Login.css';
@@ -13,7 +13,7 @@ class Login extends React.Component {
       username: '',
       pass: '',
       gender: '',
-      id: ''
+      id: null
     }
   }
 
@@ -39,9 +39,11 @@ class Login extends React.Component {
     .then( (response) => {
       console.log(response)
       this.setState({
-        gender: localStorage.setItem('lol', response.data.type_id),
-        id: localStorage.setItem('key', response.data.id)
+        gender: response.data.type_id,
+        id: response.data.id
       })
+      localStorage.setItem('gender', response.data.type_id);
+      localStorage.setItem('id', response.data.id);
     })
     // .catch(function (error) {
     //   console.log(error);
@@ -63,7 +65,13 @@ class Login extends React.Component {
           <input type="text" username={this.state.username} onChange={this.handleChangeUsername} />
           <input type="text" pass={this.state.pass} onChange={this.handleChangePass}/>
           <input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit} />
-          <p className="TxtNewCount">Don't have an account <Link to="/">Sign Up!</Link></p>
+          <p className="TxtNewCount">Don't have an account <Link to="/form">Sign Up!</Link></p>
+          {this.state.id &&
+           this.state.gender == '1' && <Redirect to="/card" />
+           }
+          {this.state.id &&
+            this.state.gender >= "2" && <Redirect to="/matchmonster"/>
+          }
       </section>
     );
   }

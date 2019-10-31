@@ -25,60 +25,60 @@ class FormHuman extends React.Component {
     };
   }
 
-  handleChangeSex(event) {
-    this.setState({value: event.target.value});
+  handleChangeSex = (event) => {
+    this.setState({sex: event.target.value});
   }
 
-  handleChangeAge(event) {
-    this.setState({value: event.target.value});
+  handleChangeAge = (event) => {
+    this.setState({age: event.target.value});
   }
 
-  handleChangeNationality(event) {
-    this.setState({value: event.target.value});
+  handleChangeNationality = (event) => {
+    this.setState({nationality: event.target.value});
   }
 
-  handleChangeHeavy(event) {
-    this.setState({value: event.target.value});
+  handleChangeHeavy = (event) => {
+    this.setState({heavy: event.target.value});
   }
 
-  handleChangeGarlic(event) {
-    this.setState({value: event.target.value});
+  handleChangeGarlic = (event) => {
+    this.setState({garlic: event.target.value});
   }
 
-  handleChangeRun(event) {
-    this.setState({value: event.target.value});
+  handleChangeRun = (event) => {
+    this.setState({run: event.target.value});
   }
 
-  handleChangeFight(event) {
-    this.setState({value: event.target.value});
+  handleChangeFight = (event) => {
+    this.setState({fight: event.target.value});
   }
 
-  handleChangeFur(event) {
-    this.setState({value: event.target.value});
+  handleChangeFur = (event) => {
+    this.setState({fur: event.target.value});
   }
 
-  handleChangeVHS(event) {
-    this.setState({value: event.target.value});
+  handleChangeVHS = (event) => {
+    this.setState({vhs: event.target.value});
   }
 
-  handleChangeSwim(event) {
-    this.setState({value: event.target.value});
+  handleChangeSwim = (event) => {
+    this.setState({swim: event.target.value});
   }
 
-  handleChangeGinger(event) {
-    this.setState({value: event.target.value});
+  handleChangeGinger = (event) => {
+    this.setState({ginger: event.target.value});
   }
 
-  handleChangeDolls(event) {
-    this.setState({value: event.target.value});
+  handleChangeDolls = (event) => {
+    this.setState({dolls: event.target.value});
   }
 
-  handleChangeUfo(event) {
-    this.setState({value: event.target.value});
+  handleChangeUfo = (event) => {
+    this.setState({ufo: event.target.value});
   }
 
-  handleChangeLaugh(event) {
-    this.setState({value: event.target.value});
+  handleChangeLaugh = (event) => {
+    this.setState({laugh: event.target.value});
   }
 
   handleSubmit = () => {
@@ -98,24 +98,26 @@ class FormHuman extends React.Component {
     formdata.append('dolls', this.state.dolls);
     formdata.append('ufo', this.state.ufo);
     formdata.append('laugh', this.state.laugh);
-    formdata.append('id', JSON.parse(localStorage.getItem('id')));
+    formdata.append('user_id', JSON.parse(localStorage.getItem('id')) );
 
     axios.post('http://192.168.184.249:8000/human/add', formdata)
     .then( (response) => {
       console.log(response);
-      this.setState({
-        // error: response.request.responseText
-      });
+      // this.setState({
+      //   // error: response.request.responseText
+      // });
     })
+    // .catch((error) => {
+    //   console.log(error);
+    // });
   }
 
   render() {
     return (
       <section className="FormInscription" id="container">
         <header>
-          <h2>Register</h2>
+          <h2>Register Human</h2>
         </header>
-        <form>
           <label>Choose your Gender : 
             <select value={this.state.sex} onChange={this.handleChangeSex}>
               <option value="1">Male</option>
@@ -269,9 +271,8 @@ class FormHuman extends React.Component {
               </label>
             </div>
           </div>
-        </form>
 
-        <input className="button" type="submit" value="Envoyer" onClick='console.log("Lololo")'/>
+        <input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit}/>
 
       </section>
     );
