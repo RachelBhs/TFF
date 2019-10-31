@@ -1,25 +1,33 @@
 import React from 'react';
-
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Form from './Components/Form/Form';
 import Login from './Components/Login/Login';
-import Profil from './Components/Profil/Profil';
 import MatchMonster from './Components/Match/MatchMonster';
 import MatchHuman from './Components/Match/MatchHuman';
-
+import FormHuman from './Components/Form/FormHuman';
+import FormMonster from './Components/Form/FormMonster';
+import Swipe from './Components/Card/Swipe'
 import './App.css';
 import './Components/Common.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <MatchHuman/>
-        <MatchMonster/>
-        <Form/>
-        <Login />
-        <Profil />
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <Switch>
+            <Route path='/' exact component={Login}/>
+            <Route path='/form' component={Form}/>
+            <Route path='/swipe' component={Swipe}/>
+            <Route path='/formhuman' component={FormHuman}/>
+            <Route path='/formmonster' component={FormMonster}/>
+            <Route path='/matchhuman' component={MatchHuman}/>
+            <Route path='/matchmonster' component={MatchMonster}/>
+            <MatchMonster/>
+          </Switch>
+        </header>
+      </div>
+    </Router>
   );
 }
 

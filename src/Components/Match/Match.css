@@ -1,26 +1,20 @@
-
-
-.Match#container  {
-	background-color: #FF9A66;
-}
 .Match img {
 	width: 150px;
 	margin-bottom: 100px;
 }
 .Match header {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 80%;
+	width: 90%;
 	text-align: center;
-	padding: 20% 5% 0;
+	padding: 20% 5%;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
 }
 .Match img {
 	width: 60%;
 	margin-bottom: 40px;
 }
-
 .CloseBtn {
 	position: absolute;
 	top: 15px;
@@ -30,9 +24,11 @@
 	width: 25px;
 	margin: 0;
 }
-
-
 .Match h2 {
-	color: #ffffff;
+	color: #FE5C45;
 	font-size: 25px;
+}
+.CtnFilm {
+	padding: 5%;
+	text-align: center;
 }
