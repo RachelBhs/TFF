@@ -1,4 +1,5 @@
-.item{font-weight: bold;
+.item{
+    font-weight: bold;
     color:
     #14ade5;
     font-size: 20px;
@@ -34,11 +35,11 @@
 }
 
 
-.react-swipe-container > div  {
+.react-swipe-container > div {
     width: 100%;
-    height: 500px !important;
+    height: 560px !important;
+    margin: 0 0 50px;
 }
-
 .react-swipe-container p,
 .react-swipe-container h2 {
     text-align: left;
@@ -47,4 +48,8 @@
 
 .react-swipe-container p {
     font-weight: 300;
+}
+
+.CtnBtnSwipe {
+    display: flex
 }

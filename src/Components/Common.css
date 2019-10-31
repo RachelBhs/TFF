@@ -101,6 +101,10 @@ label {
 	margin-bottom: 15px;
 	font-weight: 700;
 }
+.formCheckbox,
+label {
+	padding: 0 5%;
+}
 input {
 	width: 100%;
 	margin-top: 15px;
@@ -120,4 +124,8 @@ select {
 }
 .formCheckbox label {
 	font-weight: 400;
+}
+.formCheckbox p {
+    font-weight: 700;
+    margin: 0 0 15px;
 }

@@ -21,7 +21,7 @@ function App() {
             <Route path='/swipe' component={Swipe}/>
             <Route path='/formhuman' component={FormHuman}/>
             <Route path='/formmonster' component={FormMonster}/>
-            <Route path='/matchuman' component={MatchHuman}/>
+            <Route path='/matchhuman' component={MatchHuman}/>
             <Route path='/matchmonster' component={MatchMonster}/>
             <MatchMonster/>
           </Switch>
