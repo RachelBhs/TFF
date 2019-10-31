@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import '../Common.css';
 import './Form.css';
+import FormHuman from './FormHuman';
+import FormMonster from './FormMonster';
 
 class Form extends React.Component {
   constructor(props) {
@@ -10,7 +12,7 @@ class Form extends React.Component {
       username: '',
       pass: '',
       gender: '',
-      error: ''
+      error: null
     };
   }
 
@@ -44,7 +46,7 @@ class Form extends React.Component {
     .then( (response) => {
       console.log(response);
       this.setState({
-        error: this.state.response
+        error: response.request.responseText
       })
     })
     // .catch((error) => {
@@ -85,7 +87,9 @@ class Form extends React.Component {
           </label>
 
           <input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit} />
-
+          {this.state.error && 
+            this.state.gender == "human" ? <FormHuman/> : <FormMonster/>
+          }
       </section>
     );
   }

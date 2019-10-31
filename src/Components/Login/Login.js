@@ -9,7 +9,9 @@ class Login extends React.Component {
     super(props);
     this.state = {
       username: '',
-      pass: ''
+      pass: '',
+      response: '',
+      human:''
     }
   }
 
@@ -34,11 +36,13 @@ class Login extends React.Component {
     console.log("erere")
     axios.post('http://192.168.184.249:8000/user/logIn', formdata)
     .then(function (response) {
-      console.log(response);
+      this.setState({
+        response: response
+      })
     })
-    .catch(function (error) {
-      console.log(error);
-    });
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
   }
 
   render() {
