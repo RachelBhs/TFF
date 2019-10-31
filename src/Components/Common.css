@@ -62,7 +62,7 @@ p {
 }
 #container {
 	position: relative; 
-	height: 100vh;
+	/* height: 100vh; */
 	margin: 30px 0;
 	width: 80%;
 	border-radius: 3px;
@@ -84,7 +84,7 @@ h2 {
 	display: block;
 	width: 60%;
 	padding: 15px 30px;
-	margin: 35px auto 0;
+	margin: 35px auto;
 	border-radius: 80px;
 	border: none;
 	background-color: #01B1E7;
@@ -93,8 +93,9 @@ h2 {
 /* Form */
 
 form {
-	padding: 30px 5%;
+	padding: 30px 5% 0;
 }
+form p, 
 label {
 	display: inherit;
 	margin-bottom: 15px;
@@ -110,22 +111,10 @@ select {
 	width: 100%;
 	margin-top: 15px;
 }
-.checkbox {
+.formCheckbox div {
 	display: flex;
+	justify-content: space-around;
 }
-.checkbox input {
-	width: auto;
-	margin: 0 15px 0;
-}
-.checkbox label {
-	margin: 0;
-}
-.checkbox div {
-	display: flex;
-	align-items: center;
-	flex-grow: 1;
-}
-.TxtNewCount {
-	margin-top: 15px;
-	text-align: center;
+.formCheckbox input {
+	margin: 0 0 0 15px;
 }
