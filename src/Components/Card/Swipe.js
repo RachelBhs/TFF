@@ -1,64 +1,61 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
+import React from 'react';
+import axios from 'axios';
+import ReactSwipe from 'react-swipe';
 
-import Swipeable from "react-swipy";
+import './Swipe.css'
+let reactSwipeEl;
 
-import Card from "./Card";
-import Button from "./Button";
+class CardSwipe extends React.Component{
 
-const appStyles = {
-  height: "100%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  width: "100%",
-  minHeight: "100vh",
-  fontFamily: "sans-serif",
-  overflow: "hidden"
-};
+  constructor() {
+    super();
+    this.state = {
+      title: "Loading",
+      description: "Loading",
+      img: "Loading"
+    }
+  }
 
-const wrapperStyles = { position: "relative", width: "100%", height: "250px" };
-const wrapperCardStyles = { position: "relative", width: "80%", height: "250px", margin: "0 auto"};
-const actionsStyles = {
-  display: "flex",
-  justifyContent: "space-between",
-  marginTop: 12
-};
+  componentDidMount = () => {
+    this.fetchJoke();
+  }
 
-class Swipe extends Component {
-  state = {
-    cards: ["First", "Second", "Third"]
-  };
+  fetchJoke = () => {
+    axios('http://192.168.184.249:8000/human/viewAll')
+    .then((response) => {
+      console.log(response)
+      this.setState({
+        title: response.data[1].title,
+        description: response.data[1].description,
+        img: response.data[1].img
+      })
+    })
+  }
 
-  remove = () =>
-    this.setState(({ cards }) => ({ cards: cards.slice(1, cards.length) }));
-
-  render() {
-    const { cards } = this.state;
-
+  render () {
     return (
-      <div style={appStyles} id="Container">
-        <div style={wrapperStyles}>
-          {cards.length > 0 && (
-            <div style={wrapperCardStyles}>
-              <Swipeable
-                buttons={({ right, left }) => (
-                  <div style={actionsStyles}>
-                    <Button onClick={left}>Reject</Button>
-                    <Button onClick={right}>Accept</Button>
-                  </div>
-                )}
-                onAfterSwipe={this.remove}
-              >
-                <Card>{cards[0]}</Card>
-              </Swipeable>
-              {cards.length > 1 && <Card zIndex={-1}>{cards[1]}</Card>}
-            </div>
-          )}
-          {cards.length <= 1 && <Card zIndex={-2}>No more cards</Card>}
-        </div>
-      </div>
-    );
+      <React.Fragment>
+        <ReactSwipe
+          className="carousel" className="container"
+          swipeOptions={{ continuous: true }}
+          ref={el => (reactSwipeEl = el)}
+        >
+          <div className="item">
+            <img src={this.state.img} />
+            <h2>{this.state.title}</h2>
+            <p>{this.state.description}</p>
+          </div>
+
+          <div className="item">
+            <img src={this.state.img} />
+            <h2>{this.state.title}</h2>
+            <p>{this.state.description}</p>
+          </div>
+        </ReactSwipe>
+        <button onClick={() => reactSwipeEl.next()}>Next</button>
+      </React.Fragment>
+    )
   }
 }
-export default Swipe;
+
+export default CardSwipe;

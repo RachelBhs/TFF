@@ -68,9 +68,7 @@ class FormMonster extends React.Component {
           </label>
 
           <input className="button" type="submit" value="Envoyer" onClick='console.log("Lololo")'/>
-
           
-
         </form>
       </section>
     );

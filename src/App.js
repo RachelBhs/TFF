@@ -5,13 +5,14 @@ import React from 'react';
 // import Profil from './Components/Profil/Profil';
 import MatchMonster from './Components/Match/MatchMonster';
 import MatchHuman from './Components/Match/MatchHuman';
-import Experience from './Components/Experience/Experience';
+// import Experience from './Components/Experience/Experience';
 import FormHuman from './Components/Form/FormHuman';
 import FormMonster from './Components/Form/FormMonster';
 
-import Card from './Components/Card/Card'
-import Swipe from './Components/Card/Swipe'
-import Button from './Components/Card/Button'
+import CardSwipe from './Components/Card/Swipe'
+
+// import Carousel from './Components/Card/Swipe'
+// import Button from './Components/Card/Button'
 
 
 import './App.css';
@@ -21,12 +22,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Swipe/>
-        <FormHuman/>
+        <CardSwipe/>
+        {/* <FormHuman/>
         <FormMonster/>
-        <Experience/>
-        <MatchHuman/>
-        <MatchMonster/>
+        {/* <Experience/> */}
+        {/* <MatchHuman/>
+        <MatchMonster/>  */}
+        
       </header>
     </div>
   );

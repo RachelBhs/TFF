@@ -17,7 +17,7 @@ class FormHuman extends React.Component {
   }
 
   handleSubmit(event) {
-    axios.post('192.168.184.30:8000/', {
+    axios.post('http://192.168.184.38:8000/human/viewAll/1', {
       firstName: 'Fred',
       lastName: 'Flintstone'
     })
