@@ -1,8 +1,4 @@
 
-
-.Match#container  {
-	background-color: #FF9A66;
-}
 .Match img {
 	width: 150px;
 	margin-bottom: 100px;
@@ -33,6 +29,6 @@
 
 
 .Match h2 {
-	color: #ffffff;
+	color: #FE5C45;
 	font-size: 25px;
 }
