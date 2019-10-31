@@ -11,7 +11,7 @@ class FormMonster extends React.Component {
   }
 
   render() {
-    
+    return
   }
 }
 

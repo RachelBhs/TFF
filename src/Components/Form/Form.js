@@ -87,9 +87,9 @@ class Form extends React.Component {
           </label>
 
           <input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit} />
-          {this.state.error && 
+          {/* {this.state.error && 
             this.state.gender == "human" ? <FormHuman/> : <FormMonster/>
-          }
+          } */}
       </section>
     );
   }

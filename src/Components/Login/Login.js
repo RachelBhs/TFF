@@ -7,11 +7,13 @@ import './Login.css';
 class Login extends React.Component {
   constructor(props) {
     super(props);
+    this.test = JSON.parse(localStorage.getItem('key')) || [];
+    this.test2 = JSON.parse(localStorage.getItem('lol')) || [];
     this.state = {
       username: '',
       pass: '',
-      response: '',
-      human:''
+      gender: '',
+      id: ''
     }
   }
 
@@ -33,16 +35,22 @@ class Login extends React.Component {
     formdata.append('username', this.state.username);
     formdata.append('pass', this.state.pass);
 
-    console.log("erere")
     axios.post('http://192.168.184.249:8000/user/logIn', formdata)
-    .then(function (response) {
+    .then( (response) => {
+      console.log(response)
       this.setState({
-        response: response
+        gender: localStorage.setItem('lol', response.data.type_id),
+        id: localStorage.setItem('key', response.data.id)
       })
     })
     // .catch(function (error) {
     //   console.log(error);
     // });
+  }
+
+  componentDidMount = () => {
+    console.log(this.test)
+    console.log(this.test2)
   }
 
   render() {

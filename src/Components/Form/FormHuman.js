@@ -11,7 +11,7 @@ class FormHuman extends React.Component {
   }
 
   render() {
-    
+    return
   }
 }
 
