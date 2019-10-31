@@ -8,6 +8,7 @@ import FormMonster from './FormMonster';
 class Form extends React.Component {
   constructor(props) {
     super(props);
+    this.id = JSON.parse(localStorage.getItem('id')) || [];
     this.state = {
       username: '',
       pass: '',
@@ -46,7 +47,8 @@ class Form extends React.Component {
     .then( (response) => {
       console.log(response);
       this.setState({
-        error: response.request.responseText
+        error: response.request.responseText,
+        id: localStorage.setItem('key', response.data.id)
       })
     })
     // .catch((error) => {
@@ -87,9 +89,9 @@ class Form extends React.Component {
           </label>
 
           <input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit} />
-          {/* {this.state.error && 
+          {this.state.error && 
             this.state.gender == "human" ? <FormHuman/> : <FormMonster/>
-          } */}
+          }
       </section>
     );
   }

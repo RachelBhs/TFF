@@ -7,8 +7,8 @@ import './Login.css';
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.test = JSON.parse(localStorage.getItem('key')) || [];
-    this.test2 = JSON.parse(localStorage.getItem('lol')) || [];
+    this.id = JSON.parse(localStorage.getItem('id')) || [];
+    this.gender = JSON.parse(localStorage.getItem('gender')) || [];
     this.state = {
       username: '',
       pass: '',
