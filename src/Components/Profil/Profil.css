@@ -1,0 +1,33 @@
+.ProfilPage .ProfilAvatar img {
+	width: 100%;
+}
+
+.ProfilPage .ProfilPreference,
+.ProfilPage .ProfilTxt {
+	padding: 3% 5%;
+}
+
+
+.ProfilPage .ProfilPreference div {
+
+	display: flex;
+	flex-wrap: wrap;
+
+
+}
+
+.ProfilPage .ProfilPreference p {
+
+    padding: 3px 15px;
+		border: 1px solid #000000;
+		border-radius: 3px; 
+    margin: 5px;
+    align-items: sp;
+}
+
+.ProfilPage h4 {
+	font-size: 16px;
+	border-bottom: 1px solid #2d2d2d;
+	padding-bottom: 15px;
+}
+

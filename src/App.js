@@ -1,25 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Form from './Components/Form/Form';
+import Login from './Components/Login/Login';
+import MatchMonster from './Components/Match/MatchMonster';
+import MatchHuman from './Components/Match/MatchHuman';
+import FormHuman from './Components/Form/FormHuman';
+import FormMonster from './Components/Form/FormMonster';
+import Swipe from './Components/Card/Swipe'
 import './App.css';
+import './Components/Common.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <Switch>
+            <Route path='/' exact component={Login}/>
+            <Route path='/form' component={Form}/>
+            <Route path='/swipe' component={Swipe}/>
+            <Route path='/formhuman' component={FormHuman}/>
+            <Route path='/formmonster' component={FormMonster}/>
+            <Route path='/matchhuman' component={MatchHuman}/>
+            <Route path='/matchmonster' component={MatchMonster}/>
+          </Switch>
+        </header>
+      </div>
+    </Router>
   );
 }
 
