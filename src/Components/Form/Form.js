@@ -9,7 +9,8 @@ class Form extends React.Component {
     this.state = {
       username: '',
       pass: '',
-      gender: ''
+      gender: '',
+      error: ''
     };
   }
 
@@ -40,12 +41,15 @@ class Form extends React.Component {
 
     console.log("erere")
     axios.post('http://192.168.184.249:8000/user/signIn', formdata)
-    .then(function (response) {
+    .then( (response) => {
       console.log(response);
+      this.setState({
+        error: this.state.response
+      })
     })
-    .catch(function (error) {
-      console.log(error);
-    });
+    // .catch((error) => {
+    //   console.log(error);
+    // });
   }
 
   render() {
@@ -55,9 +59,9 @@ class Form extends React.Component {
           <h2>Register</h2>
 
         </header>
-
+          {!this.state.error && <p>Account already exist</p>}
           <label>Username : 
-            <input type="text" username={this.state.username} onChange={this.handleChangeUsername} />
+            <input type="text" username={this.state.username} onChange={this.handleChangeUse} />
           </label>
 
           <label>Password : 
