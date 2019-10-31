@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import '../Common.css';
 import './Form.css';
+import FormHuman from './FormHuman';
+import FormMonster from './FormMonster';
 
 class Form extends React.Component {
   constructor(props) {
@@ -9,7 +11,8 @@ class Form extends React.Component {
     this.state = {
       username: '',
       pass: '',
-      gender: ''
+      gender: '',
+      error: null
     };
   }
 
@@ -39,13 +42,16 @@ class Form extends React.Component {
     formdata.append('gender', this.state.gender);
 
     console.log("erere")
-    axios.post('http://192.168.184.30:8000/user/signIn', formdata)
-    .then(function (response) {
+    axios.post('http://192.168.184.249:8000/user/signIn', formdata)
+    .then( (response) => {
       console.log(response);
+      this.setState({
+        error: response.request.responseText
+      })
     })
-    .catch(function (error) {
-      console.log(error);
-    });
+    // .catch((error) => {
+    //   console.log(error);
+    // });
   }
 
   render() {
@@ -55,9 +61,9 @@ class Form extends React.Component {
           <h2>Register</h2>
 
         </header>
-
+          {!this.state.error && <p>Account already exist</p>}
           <label>Username : 
-            <input type="text" username={this.state.username} onChange={this.handleChangeUsername} />
+            <input type="text" username={this.state.username} onChange={this.handleChangeUse} />
           </label>
 
           <label>Password : 
@@ -81,7 +87,9 @@ class Form extends React.Component {
           </label>
 
           <input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit} />
-
+          {this.state.error && 
+            this.state.gender == "human" ? <FormHuman/> : <FormMonster/>
+          }
       </section>
     );
   }
