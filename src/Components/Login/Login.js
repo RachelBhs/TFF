@@ -67,7 +67,7 @@ class Login extends React.Component {
           <input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit} />
           <p className="TxtNewCount">Don't have an account <Link to="/form">Sign Up!</Link></p>
           {this.state.id &&
-           this.state.gender == '1' && <Redirect to="/card" />
+           this.state.gender == '1' && <Redirect to="/swipe" />
            }
           {this.state.id &&
             this.state.gender >= "2" && <Redirect to="/matchmonster"/>

@@ -21,7 +21,7 @@ class CardSwipe extends React.Component{
   }
 
   fetchJoke = () => {
-    axios('http://192.168.184.249:8000/human/viewAll')
+    axios('http://192.168.184.249:8000/human/view')
     .then((response) => {
       console.log(response)
       this.setState({

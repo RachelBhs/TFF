@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 import '../Common.css';
 import './Form.css';
@@ -82,7 +83,7 @@ class FormHuman extends React.Component {
   }
 
   handleSubmit = () => {
-    console.log(this.state);
+    console.log(this.state)
     let formdata = new FormData();
     formdata.append('sex', this.state.sex);
     formdata.append('age', this.state.age);
@@ -98,11 +99,11 @@ class FormHuman extends React.Component {
     formdata.append('dolls', this.state.dolls);
     formdata.append('ufo', this.state.ufo);
     formdata.append('laugh', this.state.laugh);
-    formdata.append('user_id', JSON.parse(localStorage.getItem('id')) );
+    formdata.append('user_id', localStorage.getItem('id') );
 
     axios.post('http://192.168.184.249:8000/human/add', formdata)
     .then( (response) => {
-      console.log(response);
+      console.log("hey");
       // this.setState({
       //   // error: response.request.responseText
       // });
@@ -272,7 +273,7 @@ class FormHuman extends React.Component {
             </div>
           </div>
 
-        <input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit}/>
+        <Link to="/swipe"><input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit}/></Link>
 
       </section>
     );

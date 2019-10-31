@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {Link, Redirect} from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 import '../Common.css';
 import './Form.css';
 
@@ -41,7 +41,6 @@ class Form extends React.Component {
     formdata.append('pass', this.state.pass);
     formdata.append('gender', this.state.gender);
 
-    console.log("erere")
     axios.post('http://192.168.184.249:8000/user/signIn', formdata)
     .then( (response) => {
       console.log(response);
@@ -49,7 +48,7 @@ class Form extends React.Component {
         error: response.request.responseText,
         id: response.data.id
       })
-      localStorage.setItem('key', response.data.id)
+      localStorage.setItem('id', response.data.id)
     })
     // .catch((error) => {
     //   console.log(error);
@@ -64,7 +63,7 @@ class Form extends React.Component {
 
         </header>
           <label>Username : 
-            <input type="text" username={this.state.username} onChange={this.handleChangeUse} />
+            <input type="text" username={this.state.username} onChange={this.handleChangeUsername} />
           </label>
 
           <label>Password : 
@@ -93,7 +92,7 @@ class Form extends React.Component {
             this.state.gender == "1" && <Redirect to='/formhuman'></Redirect> 
           }
           {this.state.error &&
-            this.state.gender >= 2 && <Redirect to='/formmonster'></Redirect>
+            this.state.gender >= "2" && <Redirect to='/formmonster'></Redirect>
           }
       </section>
     );
