@@ -34,7 +34,7 @@ class FormMonster extends React.Component {
     return (
       <section className="FormInscription" id="container">
         <header>
-          <h2>Register</h2>
+          <h2>Register Monster</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
         </header>
         <form onSubmit={this.handleSubmit}>

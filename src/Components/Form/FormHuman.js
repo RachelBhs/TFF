@@ -33,7 +33,7 @@ class FormHuman extends React.Component {
     return (
       <section className="FormInscription" id="container">
         <header>
-          <h2>Register</h2>
+          <h2>Register Human</h2>
         </header>
         <form onSubmit={this.handleSubmit}>
           <label>Choose your Gender : 

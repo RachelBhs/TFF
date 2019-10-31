@@ -1,4 +1,3 @@
-
 .Match img {
 	width: 150px;
 	margin-bottom: 100px;
@@ -16,7 +15,6 @@
 	width: 60%;
 	margin-bottom: 40px;
 }
-
 .CloseBtn {
 	position: absolute;
 	top: 15px;
@@ -26,8 +24,6 @@
 	width: 25px;
 	margin: 0;
 }
-
-
 .Match h2 {
 	color: #FE5C45;
 	font-size: 25px;
