@@ -1,6 +1,6 @@
 import React from 'react';
-
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 import '../Common.css';
 import './Form.css';
@@ -9,25 +9,44 @@ class FormMonster extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ''
+      name: '',
+      description: '',
+      image: ''
     };
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleChangeName = (event) => {
+    this.setState({name: event.target.value});
   }
 
-  handleSubmit(event) {
-    axios.post('192.168.184.30:8000/', {
-      firstName: 'Fred',
-      lastName: 'Flintstone'
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
+  handleChangeDescription = (event) => {
+    this.setState({description: event.target.value});
+  }
+
+  handleChangeImage = (event) => {
+    this.setState({
+      image: event.target.value
     });
+  }
+
+  handleSubmit = () => {
+    console.log(this.state);
+    let formdata = new FormData();
+    formdata.append('name', this.state.name);
+    formdata.append('description', this.state.description);
+    formdata.append('image', this.state.image);
+    formdata.append('user_id', JSON.parse(localStorage.getItem('id')) );
+
+    axios.post('http://192.168.184.249:8000/human/add', formdata)
+    .then( (response) => {
+      console.log(response);
+      // this.setState({
+      //   // error: response.request.responseText
+      // });
+    })
+    // .catch((error) => {
+    //   console.log(error);
+    // });
   }
 
   render() {
@@ -37,18 +56,17 @@ class FormMonster extends React.Component {
           <h2>Register Monster</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
         </header>
-        <form onSubmit={this.handleSubmit}>
 
           <label>Name : 
-            <input type="text" />
+            <input type="text" name={this.state.name} onChange={this.handleChangeName}/>
           </label>
 
-          <label>LastName : 
-            <input type="text" />
+          <label>Description : 
+            <input type="text" description={this.state.description} onChange={this.handleChangeDescription}/>
           </label>
 
-          <label>Adress : 
-            <input type="text" />
+          <label>Image : 
+            <input type="text" image={this.state.image} onChange={this.handleChangeImage}/>
           </label>
 
           <label>Lorem ipsum dolor : 
@@ -68,8 +86,9 @@ class FormMonster extends React.Component {
           </label>
 
           <input className="button" type="submit" value="Envoyer" onClick='console.log("Lololo")'/>
-          
-        </form>
+        
+          <Link to='/matchmonster'><input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit}/> </Link>
+
       </section>
     );
   }
