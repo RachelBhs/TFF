@@ -22,7 +22,8 @@ class FormHuman extends React.Component {
       ginger: '',
       dolls: '',
       ufo: '',
-      laugh:''
+      laugh:'',
+      userId: localStorage.getItem('id') || '1'
     };
   }
 
@@ -146,7 +147,7 @@ class FormHuman extends React.Component {
             </select>
           </label>
 
-          <label>Choose your Size : 
+          <label>More than 75KG ? : 
             <select value={this.state.heavy} onChange={this.handleChangeHeavy}>
               <option value="13">Heavy</option>
               <option value="14">Not Heavy</option>
@@ -166,7 +167,7 @@ class FormHuman extends React.Component {
           </div>
 
           <div className="formCheckbox">
-            <p>Est tu adeptes de la course à pieds ?</p>
+            <p>Do you like running ?</p>
             <div>
               <label>
                 Yes <input type="checkbox" run={this.state.run} onChange={this.handleChangeRun} value="17" />
@@ -178,7 +179,7 @@ class FormHuman extends React.Component {
           </div>
 
           <div className="formCheckbox">
-            <p>Fait tu des arts martiaux ?</p>
+            <p>Martial arts ?</p>
             <div>
               <label>
                 Yes <input type="checkbox" fight={this.state.fight} onChange={this.handleChangeFight} value="19" />
@@ -190,7 +191,7 @@ class FormHuman extends React.Component {
           </div>
 
           <div className="formCheckbox">
-            <p>Est tu allergique aux poils ?</p>
+            <p>Are you allergic to dog's hairs ?</p>
             <div>
               <label>
                 Yes <input type="checkbox" fur={this.state.fur} onChange={this.handleChangeFur} value="21" />
@@ -202,7 +203,7 @@ class FormHuman extends React.Component {
           </div>
 
           <div className="formCheckbox">
-            <p>Est tu équipé en VHS ?</p>
+            <p>EDo you have a VHS player ?</p>
             <div>
               <label>
                 Yes <input type="checkbox" vhs={this.state.vhs} onChange={this.handleChangeVHS} value="23" />
@@ -214,7 +215,7 @@ class FormHuman extends React.Component {
           </div>
 
           <div className="formCheckbox">
-            <p>Do you like Swim ?</p>
+            <p>Do you know how to swim ?</p>
             <div>
               <label>
                 Yes <input type="checkbox" swim={this.state.swim} onChange={this.handleChangeSwim} value="25" />
@@ -226,7 +227,7 @@ class FormHuman extends React.Component {
           </div>
 
           <div className="formCheckbox">
-            <p>Are you a Ginge Person ?</p>
+            <p>Are you a ginger ?</p>
             <div>
               <label>
                 Yes <input type="checkbox" ginger={this.state.ginger} onChange={this.handleChangeGinger} value="27" />
@@ -250,7 +251,7 @@ class FormHuman extends React.Component {
           </div>
 
           <div className="formCheckbox">
-            <p>Do you believe UFO ?</p>
+            <p>Do you believe in UFOs ?</p>
             <div>
               <label>
                 Yes <input type="checkbox" dolls={this.state.dolls} onChange={this.handleChangeUfo} value="31" />
@@ -262,7 +263,7 @@ class FormHuman extends React.Component {
           </div>
 
           <div className="formCheckbox">
-            <p>Do you like laugh ?</p>
+            <p>Do you like to laugh ?</p>
             <div>
               <label>
                 Yes <input type="checkbox" laugh={this.state.laugh} onChange={this.handleChangeLaugh} value="33" />
@@ -273,7 +274,7 @@ class FormHuman extends React.Component {
             </div>
           </div>
 
-        <Link to="/swipe"><input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit}/></Link>
+        <Link to={`/swipe/${this.state.userId}`}><input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit}/></Link>
 
       </section>
     );

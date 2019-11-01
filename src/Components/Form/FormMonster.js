@@ -40,20 +40,14 @@ class FormMonster extends React.Component {
     axios.post('http://192.168.184.249:8000/human/add', formdata)
     .then( (response) => {
       console.log(response);
-      // this.setState({
-      //   // error: response.request.responseText
-      // });
     })
-    // .catch((error) => {
-    //   console.log(error);
-    // });
   }
 
   render() {
     return (
       <section className="FormInscription" id="container">
         <header>
-          <h2>Register Monster</h2>
+          <h2>Register Experience</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
         </header>
 
@@ -68,24 +62,6 @@ class FormMonster extends React.Component {
           <label>Image : 
             <input type="text" image={this.state.image} onChange={this.handleChangeImage}/>
           </label>
-
-          <label>Lorem ipsum dolor : 
-            <select>
-              <option name="human">human</option>
-              <option name="vampire">vampire</option>
-              <option name="werewolf">werewolf</option>
-              <option name="zombie">zombie</option>
-              <option name="ghost">ghost</option>
-              <option name="serial_killer">serial_killer</option>
-              <option name="demon">demon</option>
-              <option name="aquatic_monster">aquatic_monster</option>
-              <option name="alien">alieb</option>
-              <option name="clown">clown</option>
-              <option name="possessed_doll">possessed_doll</option>
-            </select>
-          </label>
-
-          <input className="button" type="submit" value="Envoyer" onClick='console.log("Lololo")'/>
         
           <Link to='/matchmonster'><input className="button" type="submit" value="Envoyer" onClick={this.handleSubmit}/> </Link>
 

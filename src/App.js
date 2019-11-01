@@ -6,7 +6,8 @@ import MatchMonster from './Components/Match/MatchMonster';
 import MatchHuman from './Components/Match/MatchHuman';
 import FormHuman from './Components/Form/FormHuman';
 import FormMonster from './Components/Form/FormMonster';
-import Swipe from './Components/Card/Swipe'
+import MatchWait from './Components/Match/MatchWait';
+import Swipe from './Components/Card/Swipe';
 import './App.css';
 import './Components/Common.css';
 
@@ -18,11 +19,12 @@ function App() {
           <Switch>
             <Route path='/' exact component={Login}/>
             <Route path='/form' component={Form}/>
-            <Route path='/swipe' component={Swipe}/>
+            <Route path='/swipe/:id' component={Swipe}/>
             <Route path='/formhuman' component={FormHuman}/>
             <Route path='/formmonster' component={FormMonster}/>
             <Route path='/matchhuman' component={MatchHuman}/>
             <Route path='/matchmonster' component={MatchMonster}/>
+            <Route path='/matchwait' component={MatchWait}/>
           </Switch>
         </header>
       </div>

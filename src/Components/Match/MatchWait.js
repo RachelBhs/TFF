@@ -4,7 +4,7 @@ import axios from 'axios';
 import '../Common.css';
 import './Match.css';
 
-class MatchMonster extends React.Component {
+class MatchWait extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,11 +40,11 @@ class MatchMonster extends React.Component {
         </div>
         <header>
           <img src={"https://image.flaticon.com/icons/svg/1554/1554591.svg"} />
-          <h2>Order Ready</h2>
+          <h2>No Match found</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
         </header>
         <div className="CtnFilm">
-          <h3>You can watch this Movie</h3>
+          <h3>You can watch this Movie instead</h3>
           <img src={this.state.posterUrl} alt={this.state.posterUrl} />
           <h2>{this.state.title}</h2>
           <p>{this.state.director}</p>
@@ -53,4 +53,4 @@ class MatchMonster extends React.Component {
     );
   }
 }
-export default MatchMonster;
+export default MatchWait;

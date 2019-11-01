@@ -7,7 +7,7 @@ import './Form.css';
 class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.id = JSON.parse(localStorage.getItem('id')) || [];
+    // this.id = JSON.parse(localStorage.getItem('id')) || [];
     this.state = {
       username: '',
       pass: '',
